@@ -6,3 +6,13 @@ audio.currentTime = 0; //rewind to the start
 audio.play();//play the audio
 key.classList.add('playing');//add the playing class to the key
 });
+
+function removeTransition(e){
+  if(e.propertyName !== 'transform') return;//skip it if it's not a transform
+  console.log(e.propertyName);
+}
+
+
+//remove the transition effect after the key is pressed 
+const keys = document.querySelectorAll('.key');//select all the keys
+keys.forEach(keys => keys.addEventListener('transitionend', removeTransition));//add event listener to each key
